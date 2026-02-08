@@ -1,10 +1,10 @@
 import tomllib
 import pathlib
 
-def load_credentials(application: str) -> dict | None:
-    """Read credentials."""
+def get_config(application: str) -> dict | None:
+    """Read config for application."""
     home = pathlib.Path.home()
-    filename = f"{home}/.credentials.toml"
+    filename = f"{home}/.petholla_config.toml"
     with open(filename, "rb") as file:
         data = tomllib.load(file)
         return data.get(application)
